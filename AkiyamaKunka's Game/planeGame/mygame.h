@@ -6,11 +6,12 @@
 #include <QPainter>
 #include <QPushButton>
 #include "config.h"
+#include "map.h"
+#include "plane.h"
 #include <QResource>
 #include <QPixmap>
 #include <QKeyEvent>
 #include <QDebug>
-#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MyGame; }
@@ -27,34 +28,28 @@ public:
     MyGame(QWidget *parent = nullptr);
     ~MyGame();
     void paintEvent(QPaintEvent* );
-    void changePoX();
+
     void initSence();
-    void initPos();
+
     void movePlane();
     void updatePos();
-    bool isOutRange();
+    bool isOutRange(int x ,int y);
+
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event);
     virtual void keyReleaseEvent(QKeyEvent *event);
 
 
-
-
 private:
+    Map background;
+    Plane myPlane;
 
     QPainter paintRect;
-    QRect square;
-    QPixmap battlePlane;
+
     QTimer timer;
 
-    int poX;
-    int poY;
 
-    bool isUp;
-    bool isDown;
-    bool isLeft;
-    bool isRight;
 
     Ui::MyGame *ui;
 };

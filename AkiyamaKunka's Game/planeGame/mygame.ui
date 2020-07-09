@@ -6,32 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>512</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MyGame</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="startGame">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>430</y>
-      <width>101</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="quitGame">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>470</y>
+      <x>210</x>
+      <y>660</y>
       <width>101</width>
       <height>24</height>
      </rect>
@@ -41,16 +28,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
+  <widget class="QMenuBar" name="menubar"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
