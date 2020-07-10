@@ -5,10 +5,13 @@ Map::Map()
 {
     initMapPos();
     setMapSpeed();
+
     background1.load(MAP_LOCAT);
     background2.load(MAP_LOCAT);
+
 }
-QPixmap Map::giveMap(int num){
+QPixmap Map::giveMap(int num)
+{
     if(num == 1)
         return background1;
     else
@@ -42,6 +45,7 @@ void Map::mapPos()
 {
     bg1PosY += scrollSpeed;
     bg2PosY += scrollSpeed;
+
     if( bg1PosY > GAME_LEN){
         resetMapPos1();
     }
@@ -56,6 +60,7 @@ void Map::resetMapPos1()
     bg1PosY = 0;
 }
 
-void Map::resetMapPos2(){
+void Map::resetMapPos2()
+{
     bg2PosY =-GAME_LEN;
 }

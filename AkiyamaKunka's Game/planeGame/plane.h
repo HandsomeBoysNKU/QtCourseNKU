@@ -17,35 +17,35 @@
 class Plane
 {
 public:
+
     Plane();
 
-    void initPos();
-
+    void initPos(); // the functions to set the position
     void updatePos();
-    bool isOutRange(int x ,int y);
-
-    int showPosX();
-    int showPosY();
-    QPixmap givePlane();
-    QRect giveSquare();
-    void getKey(int);
-    void getKeyPressEvent(Qt::Key);
+    void getKey(int); // the get the key number from the user
+    void getKeyPressEvent(Qt::Key); // the functions to obtain the key from the user
     void getKeyReleaseEvent(Qt::Key);
 
+    bool isOutRange(int x ,int y); // to detect if the
 
+    int showPosX(); // to provide the coordinate
+    int showPosY();
+
+    QPixmap givePlane(); // the provide the picture and square to detect collapse or painting
+    QRect giveSquare();
 
 private:
-    QRect square;
-    QPixmap battlePlane;
 
     int poX;
     int poY;
-
 
     bool isUp;
     bool isDown;
     bool isLeft;
     bool isRight;
+
+    QRect square;
+    QPixmap battlePlane;
 
 };
 

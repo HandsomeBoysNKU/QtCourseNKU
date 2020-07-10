@@ -2,7 +2,10 @@
 
 Plane::Plane()
 {
+
     battlePlane.load(PLANE_ICON);
+    square.setWidth(battlePlane.width());
+    square.setHeight(battlePlane.height());
 }
 
 
@@ -19,11 +22,14 @@ int Plane::showPosY(){
     return poY;
 }
 
+
 void Plane::initPos()
 {
 
-    poX = (GAME_WID + PLANE_WID)/2;
-    poY = (GAME_LEN + PLANE_LEN)/2;
+    poX = GAME_WID  / 2 - battlePlane.width() / 2;
+    poY = GAME_LEN / 2 + battlePlane.height();
+    square.setWidth(battlePlane.width());
+    square.setHeight(battlePlane.height());
     square.moveTo(poX,poY);
 }
 
