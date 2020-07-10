@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/add.png</file>
+        <file>image/back.png</file>
+        <file>image/hand.png</file>
+        <file>image/help.png</file>
+        <file>image/last.png</file>
+        <file>image/loop.png</file>
+        <file>image/musicListBack.png</file>
+        <file>image/next.png</file>
+        <file>image/oneloop.png</file>
+        <file>image/pause.ico</file>
+        <file>image/random.png</file>
+        <file>image/reload.png</file>
+        <file>image/star.ico</file>
+        <file>image/volum.png</file>
+        <file>image/windowback.jpeg</file>
+    </qresource>
+</RCC>
