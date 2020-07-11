@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>basketball1_size40.png</file>
+        <file>bullet1_size20_ccw90.png</file>
+        <file>tower1.png</file>
+        <file>cf2_carrot1.png</file>
+        <file>greenscreen1.png</file>
+        <file>tower1_alpha50.png</file>
+        <file>stone3_size100.png</file>
+        <file>cf2_sunflower1_size100.png</file>
+        <file>cf2_startButton1.png</file>
+        <file>cf2_startInterface1_w4h3.png</file>
+        <file>cf2_moneyIcon_size50.png</file>
+        <file>cf2_sunflower1_size60.png</file>
+        <file>cf2_sunflower1_size100_alpha50.png</file>
+        <file>cf2_sunflower1_size80.png</file>
+        <file>cf2_sunflower1_size80_alpha50.png</file>
+        <file>cf2_cannonball_cw90.png</file>
+        <file>cf2_cannon1.png</file>
+        <file>cf2_cannon1_cw90.png</file>
+        <file>cf2_cannon1_alpha50.png</file>
+        <file>cf2_cannon1_size60.png</file>
+        <file>buttonIconWood.png</file>
+        <file>buttonIcon_close.png</file>
+        <file>buttonIcon_restart.png</file>
+    </qresource>
+</RCC>
