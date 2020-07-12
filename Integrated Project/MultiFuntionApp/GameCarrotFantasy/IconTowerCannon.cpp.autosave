@@ -1,0 +1,18 @@
+#include "IconTowerCannon.h"
+#include <QPen>
+IconTowerCannon::IconTowerCannon(QGraphicsItem *parent) :
+    BuildTowerIcon(parent),
+    borderLength(80)
+{
+    setPixmap(QPixmap(":/images/tower1.png"));
+    border = new QGraphicsRectItem(0, 0, 80, 80, this);
+    border->setPen(QPen(Qt::DotLine));
+    QPointF rectCenter(borderLength/2, borderLength/2);
+    rectCenter = mapToScene(rectCenter);
+    QLineF line(rectCenter, centerPos());
+    border->setPos(x() + line.dx(), y() + line.dy());
+}
+
+void IconTowerCannon::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+    setTower(new TowerCannon());
+}
