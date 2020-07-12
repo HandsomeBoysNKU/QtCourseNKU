@@ -33,8 +33,3 @@ QT       += multimedia
 
 RESOURCES += \
     resource.qrc
-
-unix|win32: LIBS += -L$$PWD/'../../../API/FMOD Studio API Windows/api/core/lib/x64/' -lfmod_vc
-
-INCLUDEPATH += $$PWD/'../../../API/FMOD Studio API Windows/api/core/inc'
-DEPENDPATH += $$PWD/'../../../API/FMOD Studio API Windows/api/core/inc'
