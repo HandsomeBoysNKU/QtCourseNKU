@@ -1,16 +1,19 @@
 #include "bullet.h"
 
+
+int Bullet::speed = BULLET_SPEED;
+int Bullet::interval = BULLET_INTERVAL * 2;
+QPixmap* Bullet::image(NULL);
+
 Bullet::Bullet()
 {
-
-    image.load(BULLET_LOCAT);
+    image = new QPixmap(BULLET_LOCAT);
     posX = GAME_WID/2;
     posY = GAME_LEN/2;
-    interval = BULLET_INTERVAL;
-    speed = BULLET_SPEED;
 
-    square.setWidth(image.width()); // to set the square to detect the collapse
-    square.setHeight(image.height());
+    //image->load(BULLET_LOCAT);
+    square.setWidth(image->width()); // to set the square to detect the collapse
+    square.setHeight(image->height());
     square.moveTo(posX, posY);
 
     free = true;
@@ -20,6 +23,18 @@ Bullet::Bullet()
 void Bullet::setPos(int x, int y){
     posX = x;
     posY = y;
+}
+
+void Bullet::level1()
+{
+    image->load(BULLET_LOCAT1);
+    speed = BULLET_SPEED * 1.5;
+}
+
+void Bullet::level2()
+{
+    image->load(BULLET_LOCAT2);
+    speed = BULLET_SPEED * 4;
 }
 void Bullet::updatePos()
 {
@@ -41,9 +56,7 @@ int Bullet::givePosY(){
     return posY;
 }
 
-QPixmap Bullet::giveImage(){
-    return image;
-}
+
 
 QRect Bullet::giveRect()
 {
@@ -53,6 +66,11 @@ QRect Bullet::giveRect()
 bool Bullet::isFree()
 {
     return free;
+}
+
+QPixmap Bullet::giveImage()
+{
+    return *image;
 }
 
 void Bullet::setFree()

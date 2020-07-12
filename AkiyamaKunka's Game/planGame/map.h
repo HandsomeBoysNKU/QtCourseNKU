@@ -16,14 +16,15 @@ public:
     void mapPos(); // set the opsition of the map
     void resetMapPos1(); // to make the maps are able to root
     void resetMapPos2();
-
+    void Level1(); // to update the difficulty
+    void Level2();
     int showPosY(int); // provide only the Y coordinate
 
     QPixmap giveMap(int); // return the picture for the painter to print the object
 
 private:
 
-    QPixmap background1;
+    QPixmap background1; // the background image
     QPixmap background2;
 
     int bg1PosY; // the first map Y coordinate

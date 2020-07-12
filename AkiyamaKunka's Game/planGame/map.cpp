@@ -7,7 +7,7 @@ Map::Map()
     setMapSpeed();
 
     background1.load(MAP_LOCAT);
-    background2.load(MAP_LOCAT);
+    background2.load(MAP_LOCAT); // to set the background image
 
 }
 QPixmap Map::giveMap(int num)
@@ -63,4 +63,16 @@ void Map::resetMapPos1()
 void Map::resetMapPos2()
 {
     bg2PosY =-GAME_LEN;
+}
+
+void Map::Level1()
+{
+    background1.load(MAP_LOCAT1);
+    background2.load(MAP_LOCAT1);
+}
+
+void Map::Level2()
+{
+    background1.load(MAP_LOCAT2);
+    background2.load(MAP_LOCAT2);
 }

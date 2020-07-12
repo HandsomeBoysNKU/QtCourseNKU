@@ -25,6 +25,7 @@ public:
     void getKey(int); // the get the key number from the user
     void getKeyPressEvent(Qt::Key); // the functions to obtain the key from the user
     void getKeyReleaseEvent(Qt::Key);
+    void level1(); // to update the difficulty
 
     bool isOutRange(int x ,int y); // to detect if the
 

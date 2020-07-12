@@ -28,6 +28,7 @@ void Plane::initPos()
 
     poX = GAME_WID  / 2 - battlePlane.width() / 2;
     poY = GAME_LEN / 2 + battlePlane.height();
+
     square.setWidth(battlePlane.width());
     square.setHeight(battlePlane.height());
     square.moveTo(poX,poY);
@@ -92,6 +93,14 @@ void Plane::getKeyReleaseEvent(Qt::Key ev){
     }
 }
 
+void Plane::level1()
+{
+    battlePlane.load(PLANE_ICON1); // get the new plane image
+    square.setWidth(battlePlane.width());
+    square.setHeight(battlePlane.height());
+
+}
+
 void Plane::updatePos()
 {
 
@@ -107,6 +116,7 @@ void Plane::updatePos()
     if(isRight && !isOutRange(poX + PLANE_MOVE_SPEED,poY))
         poX += PLANE_MOVE_SPEED;
 
+    square.moveTo(poX,poY); // donnot forget to update the square in order to judge the collapse
 }
 
 

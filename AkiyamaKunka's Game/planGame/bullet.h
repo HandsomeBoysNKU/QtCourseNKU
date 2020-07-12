@@ -21,13 +21,14 @@ public:
     void updatePos();  //functions that relevant to position
     void setFree();
     void setPos(int, int);
-
+    static void level1();
+    static void level2(); // the function to update difficulty
     int givePosX();
     int givePosY();
 
     bool isFree(); //the same logic
 
-    QPixmap giveImage(); //return the QPixmap and QRect to paint and judge the collapse
+    static QPixmap giveImage(); //return the QPixmap and QRect to paint and judge the collapse
     QRect giveRect();
 
 private:
@@ -35,11 +36,12 @@ private:
     int posX;
     int posY;
 
-    int speed; // the speed of bullet
+    static int speed; // the speed of bullet
     bool free;
-    int interval; // the interval for timing to emit the bullet
+    static int interval; // the interval for timing to emit the bullet
 
-    QPixmap image;
+
+    static QPixmap* image;
     QRect square;
 
 };

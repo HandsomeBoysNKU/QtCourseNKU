@@ -26,6 +26,9 @@ public:
     int showPosX(); //to provide the coordinate
     int showPosY();
 
+    static void level1(); // the funtion to update the difficulty
+    static void level2();
+
     QPixmap giveImage(); // return the QPixmap and QRect to paint and judge the collapse
     QRect giveRect();
 
@@ -38,7 +41,7 @@ private:
 
     int posX;
     int posY;
-    int speed;
+    static int speed; // the speed of all enemies
 
     bool free;
 

@@ -39,7 +39,7 @@ public:
     void setBullet(int i);
     void setEnemy();
     void ifCollapsed(); // to detect if some objects are collapsed
-
+    void updateLevel();
     bool isOutRange(int x ,int y);
 
 protected:
@@ -55,6 +55,7 @@ private:
     int cntBullet; // to relize the bullet functions
     int score; // the score of the player
     int life; // the HP of our plane
+    int enemyInverval; // to generate enemy every a few second
 
     Map background; // the background
 
