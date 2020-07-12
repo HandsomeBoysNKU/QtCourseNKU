@@ -17,22 +17,35 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent) :
     MyQGraphicsDigitItem(5, parent)
 {
     textOffset = QPointF(20, -40);
-    setPixmap(QPixmap(":/images/basketball1_size40.png"));
     pace = 10;
 
     if (pointsToFollow.size() <= 0) return;
-    setPos(pointsToFollow[0] - selfCenter());
+
     for (int i = 0, n = pointsToFollow.size(); i < n; ++i) {
-        points << pointsToFollow[i] - selfCenter();
+        pathCenterPoints << pointsToFollow[i];
+        pathPoints << pathCenterPoints[i];
     }
-    pointIndex = 0;
-    dest = points[0];
+    pathPointIndex = 0;
+    dest = pathPoints[0];
     setTransformOriginPoint(20, 20);
 
     valueText->setFont(QFont("consolas", 12, 100));
     valueText->setDefaultTextColor(QColor(0xaa, 0xaa, 0xaa));
 
     activate(100);
+}
+
+void Enemy::setPixmap(const QPixmap &pixmap)
+{
+    MyQGraphicsDigitItem::setPixmap(pixmap);
+    for (int i = 0, n = pathCenterPoints.size(); i < n; ++i) {
+        pathPoints[i] = pathCenterPoints[i] - selfCenter();
+    }
+    setPos(pathPoints[pathPointIndex]);
+    if (pathPointIndex == 0) {
+        dest = pathPoints[0];
+        setPos(pathPoints[0]);
+    }
 }
 
 void Enemy::decrease(int num)
@@ -49,15 +62,15 @@ void Enemy::moveForward()
 {
     QLineF line(pos(), dest);
     if (line.length() < 5) {
-        ++pointIndex;
-        if (pointIndex >= points.size()) {
+        ++pathPointIndex;
+        if (pathPointIndex >= pathPoints.size()) {
             timer->stop();
             reachEnd();
             scene()->removeItem(this);
             delete this;
             return;
         }
-        dest = points[pointIndex];
+        dest = pathPoints[pathPointIndex];
     }
     double theta = (-1)*line.angle();
     double dy = pace * qSin(qDegreesToRadians(theta));
@@ -70,4 +83,9 @@ void Enemy::activate(int msec)
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(moveForward()));
     timer->start(msec);
+}
+
+void Enemy::setHealth(int v)
+{
+    setValue(v);
 }

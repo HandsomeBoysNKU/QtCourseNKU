@@ -7,8 +7,12 @@
 #include <QDebug>
 
 const int TowerCannon::cannonCost = 20;
+const int TowerCannon::detectInterval = 150;
+const int TowerCannon::attackInterval = 800;
+const int TowerCannon::scopeRadius = 283;
+
 TowerCannon::TowerCannon(QGraphicsItem *parent) :
-    Tower(283, parent)
+    Tower(scopeRadius, parent)
 {
     setPixmap(QPixmap(":/images/cf2_cannon1_alpha50.png"));
     pixmapFileName = QString(":/images/cf2_cannon1_cw90.png");
@@ -17,7 +21,7 @@ TowerCannon::TowerCannon(QGraphicsItem *parent) :
 
 void TowerCannon::activate()
 {
-    Tower::activate(150, 800);
+    Tower::activate(detectInterval, attackInterval);
     setRotation(-90);
 }
 
@@ -36,16 +40,13 @@ void TowerCannon::detectAndAttack()
             double thisDist = distanceTo(colliding_items[i]);
             if (thisDist < closestDist){
                 closestDist = thisDist;
-                target = enemy->pos();
+                target = enemy->centerPos();
                 hasTarget = true;
             }
         }
     }
     if (hasTarget) {
         rotateToPoint(target);
-//        QLineF line(selfCenter(), target);
-//        int angle = (1) * line.angle();
-//        qDebug()<<"c angle"<<angle<<"c rotation"<<rotation();
     }
 }
 

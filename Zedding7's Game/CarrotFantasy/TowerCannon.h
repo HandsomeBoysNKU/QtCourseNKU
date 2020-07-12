@@ -17,7 +17,10 @@ public slots:
     virtual void attack();
 protected:
     QPointF target;
-
+private:
+    const static int attackInterval;
+    const static int detectInterval;
+    const static int scopeRadius;
 };
 
 #endif // BROWNTOWER_H

@@ -4,13 +4,13 @@
 #include <QGraphicsLineItem>
 #include <QPen>
 #include <QBrush>
-#include <QGraphicsLineItem>
-#include <QMessageBox>
 #include <QBitmap>
 #include <QDebug>
 #include "TowerCannon.h"
 #include "CannonBall.h"
 #include "Enemy.h"
+#include "EnemyOrange.h"
+#include "EnemyBlue.h"
 #include "TowerSun.h"
 #include "Carrot.h"
 
@@ -68,8 +68,8 @@ void Game::mousePressEvent(QMouseEvent *event) {
 void Game::createEnemies() {
     spawnTimer = new QTimer(this);
     spawnInterval = new QTimer(this);
-    waveList << "g" << "b" << "g" << "b";
-    enemyNumber << 7 << 5 << 7 << 5;
+    waveList << Enemy::orange << Enemy::blue << Enemy::orange << Enemy::blue;
+    enemyNumber << 5 << 5 << 8 << 8;
     maxWave = waveList.size();
     currentWave = 0;
     enemyCounter = enemyNumber.at(currentWave);
@@ -80,7 +80,18 @@ void Game::createEnemies() {
 
 void Game::spawnEnemy() {
     // spawn an enemy
-    Enemy * enemy = new Enemy(roadCenterPoints);
+    Enemy * enemy = nullptr;
+    switch(waveList[currentWave]) {
+    case Enemy::orange:
+        enemy = new EnemyOrange(roadCenterPoints);
+        break;
+    case Enemy::blue:
+        enemy = new EnemyBlue(roadCenterPoints);
+        break;
+    default:
+        break;
+    }
+
     connect(enemy, SIGNAL(reachEnd()), carrot, SLOT(decrease()));
     scene->addItem(enemy);
     --enemyCounter;

@@ -60,7 +60,7 @@ protected:
     QList<QPointF> gridRoadPoints;
     QList<QPointF> roadCenterPoints;
     QList<Road *> roads;
-    QList<QString> waveList;
+    QList<int> waveList;
     QList<int> enemyNumber;
     int currentWave = 0;
     int maxWave = 0;

@@ -16,18 +16,27 @@ class Enemy : public MyQGraphicsDigitItem
 public:
     ~Enemy();
     Enemy(QList<QPointF> pointsToFollow, QGraphicsItem * parent = nullptr);
+    void setPixmap(const QPixmap& pixmap);
+    enum Monster { orange, blue };
+
 signals:
     void reachEnd();
+
 public slots:
-    void decrease(int num = 1);
+    void decrease(int num);
     void moveForward();
+
 protected:
-    QTimer *timer;
-    QList<QPointF> points;
-    QPointF dest;
-    int pointIndex;
-    int pace;
     void activate(int msec = 100);
+    void setHealth(int v);
+
+    QTimer *timer;
+    QList<QPointF> pathCenterPoints;
+    QList<QPointF> pathPoints;
+    QPointF dest;
+    int pathPointIndex;
+    int pace;
+
 private:
     int& health = value;
 };

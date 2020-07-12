@@ -35,13 +35,13 @@ void CannonBall::move()
 
     QList<QGraphicsItem *> tcollidingItems = detectionScope->collidingItems();
     for (int i = 0, n = tcollidingItems.size(); i < n; ++i){
-        if (typeid(*(tcollidingItems[i])) == typeid(Enemy)){
-                Enemy *p = dynamic_cast<Enemy *>(tcollidingItems[i]);
-                p->decrease(2);
-                // delete them from the heap to save memory
-                scene()->removeItem(this);
-                delete this;
-                return;
+        Enemy *penemy = dynamic_cast<Enemy *>(tcollidingItems[i]);
+        if (penemy != nullptr) {
+            penemy->decrease(2);
+            // delete them from the heap to save memory
+            scene()->removeItem(this);
+            delete this;
+            return;
         }
     }
     QLineF line = QLineF(pos(), originPoint);
